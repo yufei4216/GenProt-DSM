@@ -61,7 +61,7 @@ This repository focuses on the downstream training, evaluation, and interpretabi
 
 ## Environment
 
-Tested with Python 3.x on Windows.
+Tested with Python 3.13 on Windows.
 
 Install dependencies with:
 
