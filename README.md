@@ -76,7 +76,7 @@ The Kaggle dataset already provides the pre-extracted feature arrays required fo
 
 ## Environment
 
-Tested with Python 3.x on Windows.
+Tested with Python 3.10 on Windows.
 
 Install dependencies with:
 
