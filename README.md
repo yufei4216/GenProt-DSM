@@ -8,7 +8,7 @@ GenProt-DSM: Leveraging Pretrained Language Models to Integrate Evolutionary Con
 
 ## Repository Overview
 
-This repository provides the code and processed feature files required to run the downstream experiments of GenProt-DSM, including:
+This repository provides the code for the downstream experiments of GenProt-DSM, including:
 
 - main model training and evaluation on the balanced test set
 - challenging evaluation on rare-variant and unseen-gene test sets
@@ -29,14 +29,14 @@ results/
 
 ## Data and Features
 
-The repository contains:
+The processed dataset and feature files used in this study are publicly available at:
 
-- data/train.csv: training set
-- data/test.csv: test set
-- data/merged_memmap_raw/: pre-extracted feature arrays used for downstream training and evaluation
+https://www.kaggle.com/datasets/yufei4216/processed-dataset-for-genprot-dsm
 
-The feature directory contains eight .npy files:
+The Kaggle dataset contains:
 
+- train.csv
+- test.csv
 - train_gpn_ref.npy
 - train_gpn_alt.npy
 - test_gpn_ref.npy
@@ -46,7 +46,24 @@ The feature directory contains eight .npy files:
 - test_t5_wt.npy
 - test_t5_mut.npy
 
-These files correspond to DNA-level features extracted by GPN-MSA and protein-level features extracted by ProtT5-XL.
+These files correspond to the processed training/test dataset and the pre-extracted DNA-level and protein-level feature arrays used in the downstream experiments.
+
+## Expected Local Data Layout
+
+After downloading the dataset files, the local data structure should be organized as follows:
+
+data/
+train.csv
+test.csv
+merged_memmap_raw/
+train_gpn_ref.npy
+train_gpn_alt.npy
+test_gpn_ref.npy
+test_gpn_alt.npy
+train_t5_wt.npy
+train_t5_mut.npy
+test_t5_wt.npy
+test_t5_mut.npy
 
 ## Important Note on Pretrained Models
 
@@ -55,13 +72,11 @@ This repository does not include the original pretrained model code or weights f
 - GPN-MSA
 - ProtT5-XL
 
-Users who wish to reproduce the upstream feature extraction process should obtain these resources from their official sources.
-
-This repository focuses on the downstream training, evaluation, and interpretability pipeline of GenProt-DSM.
+The Kaggle dataset already provides the pre-extracted feature arrays required for downstream training and evaluation. Therefore, users do not need to reproduce the upstream feature extraction step in order to run the code in this repository.
 
 ## Environment
 
-Tested with Python 3.13 on Windows.
+Tested with Python 3.x on Windows.
 
 Install dependencies with:
 
@@ -95,13 +110,23 @@ python src/protT5_enhanced.py
 Interpretability and visualization:
 python src/interpretability.py
 
+## Reproducibility
+
+To reproduce the downstream workflow:
+
+1. download the processed dataset and feature files from the Kaggle link above
+2. organize the files under the expected local directory structure
+3. update local paths in the scripts if necessary
+4. run model.py for the main experiment
+5. run the other scripts for ablation, challenge-set evaluation, and interpretability analyses
+
 ## Data Source Statement
 
 The downstream dataset was curated from public and licensed resources, including HGMD, ClinVar, and gnomAD. Users should ensure compliance with the original data-source licenses and usage policies.
 
 ## Data and Code Availability
 
-The processed dataset and source code used in this study are publicly available in this repository.
+The processed dataset and feature files used in this study are publicly available at https://www.kaggle.com/datasets/yufei4216/processed-dataset-for-genprot-dsm, and the source code is publicly available in this repository.
 
 ## Citation
 
